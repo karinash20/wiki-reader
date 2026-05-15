@@ -20,13 +20,15 @@ class ArticleError extends ArticleState {
 
 class ArticleCubit extends Cubit<ArticleState> {
   final _repo = RandomArticleRepository();
-  ArticleCubit() : super(ArticleInitial());
+  ArticleCubit() : super(ArticleInitial()) {
+    updateArticle();
+  }
   void updateArticle() async {
     emit(ArticleLoading());
-    try{
+    try {
       final summary = await _repo.getRandomArticle();
-      emit (ArticleLoaded(summary));
-    } on Exception catch (e){
+      emit(ArticleLoaded(summary));
+    } on Exception catch (e) {
       emit(ArticleError(e));
     }
   }
