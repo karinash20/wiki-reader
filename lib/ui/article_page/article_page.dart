@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:wiki_reader/summary.dart';
 import 'package:wiki_reader/ui/article_page/article_widget.dart';
+import 'package:wiki_reader/ui/favorite/favorite_screen.dart';
+import 'package:wiki_reader/ui/favorite/favorite_screen.dart';
 
 class ArticlePage extends StatelessWidget {
   final Summary summary;
@@ -12,7 +14,7 @@ class ArticlePage extends StatelessWidget {
       child: Column(
         children: [
           ArticleWidget(summary: summary),
-          //ElevatedButton(onPressed: nextArticle, child: Text("Next Article")),
+          ElevatedButton(onPressed: FavoriteScreen(), child: Text("Favorite")),
         ],
       ),
     );
